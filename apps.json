@@ -1,0 +1,123 @@
+[
+    {
+        "name": "BrewTop-releases",
+        "full_name": "mgang4u/BrewTop-releases",
+        "description": "BrewTop release artifacts",
+        "html_url": "https://git.mgang.app/mgang4u/BrewTop-releases",
+        "tag_name": "v0.3.0",
+        "published_at": "2026-03-02T09:11:08Z",
+        "assets": [
+            {
+                "name": "BrewTop.app.tar.gz",
+                "url": "https://git.mgang.app/mgang4u/BrewTop-releases/releases/download/v0.3.0/BrewTop.app.tar.gz",
+                "download_count": 1
+            },
+            {
+                "name": "BrewTop_0.3.0_aarch64.dmg",
+                "url": "https://git.mgang.app/mgang4u/BrewTop-releases/releases/download/v0.3.0/BrewTop_0.3.0_aarch64.dmg",
+                "download_count": 11
+            }
+        ],
+        "downloads": 12
+    },
+    {
+        "name": "CaTerm-releases",
+        "full_name": "mgang4u/CaTerm-releases",
+        "description": "",
+        "html_url": "https://git.mgang.app/mgang4u/CaTerm-releases",
+        "tag_name": "v1.1.3",
+        "published_at": "2026-04-16T11:14:14Z",
+        "assets": [
+            {
+                "name": "CaTerm.app.tar.gz",
+                "url": "https://git.mgang.app/mgang4u/CaTerm-releases/releases/download/v1.1.3/CaTerm.app.tar.gz",
+                "download_count": 14
+            },
+            {
+                "name": "CaTerm_1.1.3_aarch64.dmg",
+                "url": "https://git.mgang.app/mgang4u/CaTerm-releases/releases/download/v1.1.3/CaTerm_1.1.3_aarch64.dmg",
+                "download_count": 4
+            }
+        ],
+        "downloads": 18
+    },
+    {
+        "name": "CaTower-releases",
+        "full_name": "mgang4u/CaTower-releases",
+        "description": "CaTower Release Artifacts",
+        "html_url": "https://git.mgang.app/mgang4u/CaTower-releases",
+        "tag_name": "v0.6.3",
+        "published_at": "2026-02-28T11:27:58Z",
+        "assets": [
+            {
+                "name": "CaTower.app.tar.gz",
+                "url": "https://git.mgang.app/mgang4u/CaTower-releases/releases/download/v0.6.3/CaTower.app.tar.gz",
+                "download_count": 1
+            },
+            {
+                "name": "CaTower_0.6.3_aarch64.dmg",
+                "url": "https://git.mgang.app/mgang4u/CaTower-releases/releases/download/v0.6.3/CaTower_0.6.3_aarch64.dmg",
+                "download_count": 19
+            }
+        ],
+        "downloads": 20
+    },
+    {
+        "name": "HiDPI-releases",
+        "full_name": "mgang4u/HiDPI-releases",
+        "description": "HiDPI release downloads (DMG, tar.gz)",
+        "html_url": "https://git.mgang.app/mgang4u/HiDPI-releases",
+        "tag_name": "v0.5.0",
+        "published_at": "2026-03-30T04:59:45Z",
+        "assets": [
+            {
+                "name": "HiDPI.app.tar.gz",
+                "url": "https://git.mgang.app/mgang4u/HiDPI-releases/releases/download/v0.5.0/HiDPI.app.tar.gz",
+                "download_count": 6
+            },
+            {
+                "name": "HiDPI_0.5.0_aarch64.dmg",
+                "url": "https://git.mgang.app/mgang4u/HiDPI-releases/releases/download/v0.5.0/HiDPI_0.5.0_aarch64.dmg",
+                "download_count": 5
+            }
+        ],
+        "downloads": 11
+    },
+    {
+        "name": "NeckGuard-releases",
+        "full_name": "mgang4u/NeckGuard-releases",
+        "description": "",
+        "html_url": "https://git.mgang.app/mgang4u/NeckGuard-releases",
+        "tag_name": "v0.1.17",
+        "published_at": "2026-06-26T00:58:54Z",
+        "assets": [
+            {
+                "name": "NeckGuard3D.app.tar.gz",
+                "url": "https://git.mgang.app/mgang4u/NeckGuard-releases/releases/download/v0.1.17/NeckGuard3D.app.tar.gz",
+                "download_count": 2
+            },
+            {
+                "name": "NeckGuard3D_0.1.17_aarch64.dmg",
+                "url": "https://git.mgang.app/mgang4u/NeckGuard-releases/releases/download/v0.1.17/NeckGuard3D_0.1.17_aarch64.dmg",
+                "download_count": 5
+            }
+        ],
+        "downloads": 7
+    },
+    {
+        "name": "myWorkHour-releases",
+        "full_name": "mgang4u/myWorkHour-releases",
+        "description": "",
+        "html_url": "https://git.mgang.app/mgang4u/myWorkHour-releases",
+        "tag_name": "v1.0.47",
+        "published_at": "2026-07-14T00:08:34Z",
+        "assets": [
+            {
+                "name": "myWorkHour-v1.0.47.zip",
+                "url": "https://git.mgang.app/mgang4u/myWorkHour-releases/releases/download/v1.0.47/myWorkHour-v1.0.47.zip",
+                "download_count": 8
+            }
+        ],
+        "downloads": 8
+    }
+]

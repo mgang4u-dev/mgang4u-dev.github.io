@@ -1,0 +1,18 @@
+{
+    "tagline": "Homebrew GUI 관리자",
+    "description": "BrewTop은 macOS의 Homebrew 패키지 관리자를 직관적인 GUI로 제공합니다. 터미널 명령어 없이 패키지를 검색하고 설치, 업데이트, 삭제할 수 있습니다.",
+    "features": [
+        "패키지 검색 및 원클릭 설치/삭제",
+        "업데이트 가능한 패키지 알림",
+        "설치된 패키지 목록 관리",
+        "Cask 앱 지원"
+    ],
+    "screenshots": [
+        "/screenshots/BrewTop/01.webp",
+        "/screenshots/BrewTop/02.webp",
+        "/screenshots/BrewTop/03.webp",
+        "/screenshots/BrewTop/04.webp",
+        "/screenshots/BrewTop/05.webp"
+    ],
+    "video": ""
+}

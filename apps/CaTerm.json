@@ -1,0 +1,20 @@
+{
+    "tagline": "가벼운 macOS 터미널",
+    "description": "CaTerm은 빠르고 가벼운 macOS 전용 터미널 에뮬레이터입니다. 깔끔한 인터페이스와 필수 기능에 집중한 터미널입니다.",
+    "features": [
+        "빠른 실행 속도",
+        "탭 및 분할 화면",
+        "테마 커스터마이징",
+        "단축키 지원"
+    ],
+    "screenshots": [
+        "/screenshots/CaTerm/01.webp",
+        "/screenshots/CaTerm/02.webp",
+        "/screenshots/CaTerm/03.webp",
+        "/screenshots/CaTerm/04.webp",
+        "/screenshots/CaTerm/05.webp",
+        "/screenshots/CaTerm/06.webp",
+        "/screenshots/CaTerm/07.webp"
+    ],
+    "video": ""
+}

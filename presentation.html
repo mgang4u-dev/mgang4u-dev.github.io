@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 활용 개발 - 웨비나</title>
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #f5f5f7;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+        }
+
+        /* Slide Container */
+        .slides {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 6rem;
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            pointer-events: none;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        .slide.prev {
+            opacity: 0;
+            transform: translateX(-60px);
+        }
+
+        /* Typography */
+        .slide-title {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .slide-subtitle {
+            font-size: 1.4rem;
+            color: #86868b;
+            text-align: center;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .slide-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #0a84ff;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Content layouts */
+        .content-box {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* Cards */
+        .card {
+            background: #1c1c1e;
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid #2c2c2e;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: #a1a1a6;
+            line-height: 1.6;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* List */
+        .tip-list {
+            list-style: none;
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .tip-list li {
+            padding: 0.4rem 0;
+            color: #d1d1d6;
+        }
+
+        .tip-list li::before {
+            content: '→';
+            color: #0a84ff;
+            margin-right: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Code block */
+        .code-block {
+            background: #1c1c1e;
+            border: 1px solid #2c2c2e;
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+            font-size: 0.95rem;
+            color: #98c379;
+            margin-top: 1.5rem;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        .code-comment { color: #5c6370; }
+        .code-keyword { color: #c678dd; }
+        .code-string { color: #98c379; }
+        .code-flag { color: #e5c07b; }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin: 0.2rem;
+        }
+
+        .badge-blue { background: rgba(10,132,255,0.15); color: #0a84ff; }
+        .badge-green { background: rgba(48,209,88,0.15); color: #30d158; }
+        .badge-orange { background: rgba(255,159,10,0.15); color: #ff9f0a; }
+        .badge-purple { background: rgba(175,82,222,0.15); color: #af52de; }
+        .badge-red { background: rgba(255,69,58,0.15); color: #ff453a; }
+
+        /* App grid for showcase */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .app-card {
+            background: #1c1c1e;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #2c2c2e;
+            text-align: center;
+            transition: border-color 0.2s;
+        }
+
+        .app-card:hover {
+            border-color: #48484a;
+        }
+
+        .app-card img {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            margin-bottom: 0.8rem;
+        }
+
+        .app-card .app-name {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .app-card .app-desc {
+            font-size: 0.8rem;
+            color: #86868b;
+        }
+
+        /* Workflow diagram */
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .flow-step {
+            background: #1c1c1e;
+            border: 1px solid #2c2c2e;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .flow-step .step-num {
+            font-size: 0.7rem;
+            color: #0a84ff;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .flow-step .step-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .flow-step .step-desc {
+            font-size: 0.75rem;
+            color: #86868b;
+            margin-top: 0.3rem;
+        }
+
+        .flow-arrow {
+            font-size: 1.5rem;
+            color: #48484a;
+            padding: 0 0.5rem;
+        }
+
+        /* Compare table */
+        .compare-table {
+            width: 100%;
+            max-width: 800px;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 1.5rem;
+        }
+
+        .compare-table th {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-size: 0.8rem;
+            color: #86868b;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid #2c2c2e;
+        }
+
+        .compare-table td {
+            padding: 1rem 1.5rem;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #1c1c1e;
+            color: #d1d1d6;
+        }
+
+        .compare-table tr td:first-child {
+            font-weight: 600;
+            color: #f5f5f7;
+        }
+
+        /* Highlight text */
+        .highlight {
+            color: #0a84ff;
+            font-weight: 600;
+        }
+
+        .highlight-green {
+            color: #30d158;
+            font-weight: 600;
+        }
+
+        /* Big number */
+        .big-num {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #0a84ff;
+            letter-spacing: -0.03em;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid #1c1c1e;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: none;
+            border: 1px solid #333;
+            color: #f5f5f7;
+            padding: 8px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+
+        .nav-btn:hover {
+            background: #1c1c1e;
+            border-color: #555;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        .nav-btn:disabled:hover {
+            background: none;
+            border-color: #333;
+        }
+
+        .page-num {
+            font-size: 0.8rem;
+            color: #86868b;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Progress bar */
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: #0a84ff;
+            transition: width 0.4s ease;
+            z-index: 100;
+        }
+
+        /* Title slide special */
+        .title-slide .slide-title {
+            font-size: 3.5rem;
+        }
+
+        .title-date {
+            font-size: 1rem;
+            color: #48484a;
+            margin-top: 1rem;
+        }
+
+        .title-author {
+            font-size: 1.1rem;
+            color: #86868b;
+            margin-top: 0.5rem;
+        }
+
+        /* Section divider */
+        .section-divider .slide-title {
+            font-size: 2.5rem;
+            color: #0a84ff;
+        }
+
+        /* Emphasis box */
+        .emphasis-box {
+            background: rgba(10,132,255,0.08);
+            border: 1px solid rgba(10,132,255,0.2);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-top: 1.5rem;
+            max-width: 700px;
+        }
+
+        .emphasis-box p {
+            color: #a1a1a6;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Mermaid-like diagram */
+        .diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin-top: 1rem;
+        }
+
+        .diagram-row {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .diagram-box {
+            background: #1c1c1e;
+            border: 1px solid #2c2c2e;
+            border-radius: 10px;
+            padding: 0.8rem 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .diagram-box.active-box {
+            border-color: #0a84ff;
+            background: rgba(10,132,255,0.08);
+        }
+
+        .diagram-arrow-down {
+            color: #48484a;
+            font-size: 1.2rem;
+            padding: 0.3rem 0;
+        }
+
+        .diagram-arrow-right {
+            color: #48484a;
+            font-size: 1.2rem;
+            padding: 0 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .slide { padding: 3rem 2rem; }
+            .slide-title { font-size: 2rem; }
+            .title-slide .slide-title { font-size: 2.5rem; }
+            .two-col { grid-template-columns: 1fr; }
+            .three-col { grid-template-columns: 1fr; }
+            .app-grid { grid-template-columns: 1fr 1fr; }
+            .flow { flex-direction: column; }
+            .flow-arrow { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="slides" id="slides">
+
+    <!-- Slide 1: Title -->
+    <div class="slide title-slide active" data-slide="0">
+        <div class="slide-label">TF팀 웨비나</div>
+        <div class="slide-title">AI 활용 개발<br>실전 가이드</div>
+        <div class="slide-subtitle">Claude Code로 개인 프로젝트 만들기</div>
+        <div class="title-date">2026. 03. 12</div>
+    </div>
+
+    <!-- Slide 2: Agenda -->
+    <div class="slide" data-slide="1">
+        <div class="content-box">
+            <div class="slide-label">Agenda</div>
+            <div class="slide-title" style="text-align:left; font-size:2rem;">오늘 이야기할 것들</div>
+            <ul class="tip-list" style="margin-top:1.5rem;">
+                <li><span class="highlight">Part 1</span> — Claude Code 활용 개발 팁</li>
+                <li><span class="highlight">Part 2</span> — 개발 워크플로우</li>
+                <li><span class="highlight">Part 3</span> — 실제 결과물 공유</li>
+                <li><span class="highlight">Part 4</span> — Q&A</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 3: Section - Part 1 -->
+    <div class="slide section-divider" data-slide="2">
+        <div class="slide-label">Part 1</div>
+        <div class="slide-title">Claude Code<br>활용 개발 팁</div>
+        <div class="slide-subtitle">더 빠르고 효율적으로 개발하기</div>
+    </div>
+
+    <!-- Slide 4: Permission -->
+    <div class="slide" data-slide="3">
+        <div class="content-box">
+            <div class="slide-label">Tip 01</div>
+            <div class="slide-title" style="text-align:left; font-size:2rem;">권한 확인 해제</div>
+            <div class="slide-subtitle" style="text-align:left; font-size:1rem; margin-top:0.5rem;">
+                매번 물어보는 권한 확인, 흐름을 끊지 말자
+            </div>
+            <div class="two-col" style="margin-top:2rem;">
+                <div class="card">
+                    <div class="card-title" style="color:#ff453a;">Before</div>
+                    <div class="card-text">
+                        파일 수정할까요? → <span class="highlight">Y</span><br>
+                        명령 실행할까요? → <span class="highlight">Y</span><br>
+                        테스트 실행할까요? → <span class="highlight">Y</span><br>
+                        <br>
+                        매 동작마다 승인 → 흐름 끊김
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title" style="color:#30d158;">After</div>
+                    <div class="card-text">
+                        허용 모드 설정으로<br>
+                        <span class="highlight-green">자동 승인</span><br>
+                        <br>
+                        코딩에만 집중 가능<br>
+                        작업 속도 대폭 향상
+                    </div>
+                </div>
+            </div>
+            <div class="code-block"><span class="code-comment"># 권한 확인 없이 실행</span>
+<span class="code-keyword">claude</span> <span class="code-flag">--dangerously-skip-permissions</span>
+
+<span class="code-comment"># 또는 설정에서 허용 모드 선택</span>
+<span class="code-keyword">/permissions</span></div>
+        </div>
+    </div>
+
+    <!-- Slide 5: CLAUDE.md -->
+    <div class="slide" data-slide="4">
+        <div class="content-box">
+            <div class="slide-label">Tip 02</div>
+            <div class="slide-title" style="text-align:left; font-size:2rem;">CLAUDE.md — 프로젝트 규칙 정의</div>
+            <div class="slide-subtitle" style="text-align:left; font-size:1rem; margin-top:0.5rem;">
+                매번 설명하지 말고, 규칙을 파일로 남기자
+            </div>
+            <div class="card" style="margin-top:2rem;">
+                <div class="code-block" style="margin:0; background:transparent; border:none; padding:0;">
+<span class="code-comment"># CLAUDE.md 예시</span>
+
+<span class="code-keyword"># 배포</span>
+<span class="code-string">- 서버 배포 시 git commit + push 먼저</span>
+<span class="code-string">- SSH: rocky@100.113.167.49</span>
+
+<span class="code-keyword"># 코드 스타일</span>
+<span class="code-string">- TypeScript 사용, 한국어 주석</span>
+<span class="code-string">- 테스트 필수</span>
+
+<span class="code-keyword"># 금지 사항</span>
+<span class="code-string">- node_modules 커밋 금지</span>
+<span class="code-string">- .env 파일 커밋 금지</span></div>
+            </div>
+            <div class="emphasis-box">
+                <p>프로젝트 루트에 <span class="highlight">CLAUDE.md</span>를 두면 Claude가 자동으로 읽고 규칙을 따릅니다.<br>반복 지시를 줄이고 일관된 결과를 얻을 수 있습니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Design First -->
+    <div class="slide" data-slide="5">
+        <div class="content-box">
+            <div class="slide-label">Tip 03</div>
+            <div class="slide-title" style="text-align:left; font-size:2rem;">설계 먼저, 코딩은 나중에</div>
+            <div class="slide-subtitle" style="text-align:left; font-size:1rem; margin-top:0.5rem;">
+                AI가 제대로 이해했는지 반드시 점검
+            </div>
+            <div class="flow" style="margin-top:2.5rem;">
+                <div class="flow-step">
+                    <div class="step-num">STEP 1</div>
+                    <div class="step-title">요구사항 전달</div>
+                    <div class="step-desc">무엇을 만들지 설명</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-num">STEP 2</div>
+                    <div class="step-title">설계 요청</div>
+                    <div class="step-desc">Plan 모드 활용</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step active-box" style="border-color:#0a84ff; background:rgba(10,132,255,0.08);">
+                    <div class="step-num">STEP 3</div>
+                    <div class="step-title">도식화 점검</div>
+                    <div class="step-desc">Mermaid 다이어그램</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-num">STEP 4</div>
+                    <div class="step-title">구현 진행</div>
+                    <div class="step-desc">검증 후 코딩 시작</div>
+                </div>
+            </div>
+            <div class="emphasis-box" style="margin-top:2rem;">
+                <p><span class="highlight">핵심:</span> Step 3을 건너뛰면 AI가 엉뚱한 방향으로 코딩합니다.<br>
+                도식화해서 "이게 내가 원한 거 맞아?"를 반드시 확인하세요.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Agent Team vs Step-by-step -->
+    <div class="slide" data-slide="6">
+        <div class="content-box">
+            <div class="slide-label">Tip 04</div>
+            <div class="slide-title" style="text-align:left; font-size:2rem;">진행 방식 선택</div>
+            <div class="slide-subtitle" style="text-align:left; font-size:1rem; margin-top:0.5rem;">
+                상황에 따라 다르게 접근
+            </div>
+            <table class="compare-table" style="margin-top:2rem;">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>에이전트 팀 구성</th>
+                        <th>단계적 진행</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>언제</td>
+                        <td>빠르게 밀어야 할 때</td>
+                        <td>정확도가 중요할 때</td>
+                    </tr>
+                    <tr>
+                        <td>방식</td>
+                        <td>서브에이전트 병렬 실행</td>
+                        <td>한 단계씩 확인하며 진행</td>
+                    </tr>
+                    <tr>
+                        <td>장점</td>
+                        <td><span class="highlight-green">속도</span></td>
+                        <td><span class="highlight-green">안정성</span></td>
+                    </tr>
+                    <tr>
+                        <td>적합한 작업</td>
+                        <td>CRUD, 반복 작업, 리팩토링</td>
+                        <td>아키텍처 설계, 복잡한 로직</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Slide 8: Tech Stack Selection -->
+    <div class="slide" data-slide="7">
+        <div class="content-box">
+            <div class="slide-label">Tip 05</div>
+            <div class="slide-title" style="text-align:left; font-size:2rem;">기술 스택도 AI와 함께 선정</div>
+            <div class="slide-subtitle" style="text-align:left; font-size:1rem; margin-top:0.5rem;">
+                서비스 성격에 맞는 최적의 기술 스택을 추천받기
+            </div>
+            <div class="two-col" style="margin-top:2rem;">
+                <div class="card">
+                    <div class="card-title">로컬 개발 환경</div>
+                    <div class="card-text">
+                        <span class="highlight">PostgreSQL</span> 주로 사용<br><br>
+                        Docker로 DB 컨테이너 구성<br>
+                        로컬에서 완전한 환경 구축
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">스택 선정 프로세스</div>
+                    <div class="card-text">
+                        1. 서비스 요구사항 정리<br>
+                        2. Claude에게 스택 추천 요청<br>
+                        3. 추천 근거 확인<br>
+                        4. 최종 선택 후 진행
+                    </div>
+                </div>
+            </div>
+            <div class="emphasis-box" style="margin-top:1.5rem;">
+                <p><span class="highlight">예시:</span> "실시간 협업 웹앱을 만들려는데 추천해줘"<br>
+                → Next.js + PostgreSQL + Prisma + Vercel AI SDK 추천<br>
+                → 이유와 대안까지 설명 → 빠른 의사결정</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Chrome Extension Testing -->
+    <div class="slide" data-slide="8">
+        <div class="content-box">
+            <div class="slide-label">Tip 06</div>
+            <div class="slide-title" style="text-align:left; font-size:2rem;">브라우저 테스트 자동화</div>
+            <div class="slide-subtitle" style="text-align:left; font-size:1rem; margin-top:0.5rem;">
+                Chrome 확장으로 실제 브라우저에서 테스트
+            </div>
+            <div class="card" style="margin-top:2rem;">
+                <div class="card-title">Claude in Chrome</div>
+                <div class="card-text" style="line-height:2;">
+                    → Claude Code에서 직접 Chrome 브라우저 제어<br>
+                    → 페이지 탐색, 클릭, 입력, 스크린샷 자동화<br>
+                    → 실제 사용자 시나리오 테스트 가능<br>
+                    → GIF 녹화로 테스트 결과 기록<br>
+                    <br>
+                    <span style="color:#ff9f0a;">⚠ 현재 간헐적 오류 발생 중 — 개선 대기</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Section - Part 2 -->
+    <div class="slide section-divider" data-slide="9">
+        <div class="slide-label">Part 2</div>
+        <div class="slide-title">개발 워크플로우</div>
+        <div class="slide-subtitle">아이디어에서 배포까지</div>
+    </div>
+
+    <!-- Slide 11: Full Workflow -->
+    <div class="slide" data-slide="10">
+        <div class="content-box">
+            <div class="slide-label">Workflow</div>
+            <div class="slide-title" style="text-align:left; font-size:2rem;">전체 개발 흐름</div>
+            <div class="flow" style="margin-top:2rem;">
+                <div class="flow-step">
+                    <div class="step-num">01</div>
+                    <div class="step-title">아이디어</div>
+                    <div class="step-desc">필요한 도구 구상</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-num">02</div>
+                    <div class="step-title">스택 선정</div>
+                    <div class="step-desc">AI 추천 + 결정</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-num">03</div>
+                    <div class="step-title">설계 & 점검</div>
+                    <div class="step-desc">Plan → 도식화</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-num">04</div>
+                    <div class="step-title">구현</div>
+                    <div class="step-desc">Claude Code</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-num">05</div>
+                    <div class="step-title">테스트</div>
+                    <div class="step-desc">Chrome 확장</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-num">06</div>
+                    <div class="step-title">배포</div>
+                    <div class="step-desc">Docker + SSH</div>
+                </div>
+            </div>
+            <div class="emphasis-box" style="margin-top:2rem;">
+                <p>모든 단계에서 AI와 대화하며 진행합니다.<br>
+                <span class="highlight">사람은 방향을 잡고, AI는 실행을 담당합니다.</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 12: Section - Part 3 -->
+    <div class="slide section-divider" data-slide="11">
+        <div class="slide-label">Part 3</div>
+        <div class="slide-title">결과물 공유</div>
+        <div class="slide-subtitle">AI와 함께 만든 프로젝트들</div>
+    </div>
+
+    <!-- Slide 13: App Showcase Overview -->
+    <div class="slide" data-slide="12">
+        <div class="slide-label">Projects</div>
+        <div class="slide-title" style="font-size:2rem; margin-bottom:2rem;">mgang.app 프로젝트</div>
+        <div class="app-grid" id="appGrid">
+            <!-- Filled by JS -->
+        </div>
+        <div style="margin-top:1.5rem; text-align:center;">
+            <span class="badge badge-blue">macOS 6개</span>
+            <span class="badge badge-green">Web 2개</span>
+            <span class="badge badge-orange">Android 1개</span>
+        </div>
+    </div>
+
+    <!-- Slide 14: macOS Apps -->
+    <div class="slide" data-slide="13">
+        <div class="content-box">
+            <div class="slide-label">macOS Apps</div>
+            <div class="slide-title" style="text-align:left; font-size:2rem;">macOS 앱들</div>
+            <div class="three-col" style="margin-top:2rem;">
+                <div class="card">
+                    <div class="card-title">BrewTop</div>
+                    <div class="badge badge-orange" style="margin-bottom:0.5rem;">beta</div>
+                    <div class="card-text">Homebrew GUI 관리자<br>패키지 검색, 설치, 업데이트를 GUI로</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">CaTerm</div>
+                    <div class="badge badge-orange" style="margin-bottom:0.5rem;">beta</div>
+                    <div class="card-text">가벼운 macOS 터미널<br>탭, 분할 화면, 테마 커스터마이징</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">CaTower</div>
+                    <div class="badge badge-orange" style="margin-bottom:0.5rem;">beta</div>
+                    <div class="card-text">Docker 컨테이너 관리자<br>컨테이너 제어, 로그, 모니터링</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">FRenamer</div>
+                    <div class="badge badge-red" style="margin-bottom:0.5rem;">alpha</div>
+                    <div class="card-text">파일명 자동 변환<br>한글 정규화, URL 디코딩</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">HiDPI</div>
+                    <div class="badge badge-orange" style="margin-bottom:0.5rem;">beta</div>
+                    <div class="card-text">2K 모니터 Retina 활성화<br>커스텀 해상도 설정</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 15: Web & Mobile Apps -->
+    <div class="slide" data-slide="14">
+        <div class="content-box">
+            <div class="slide-label">Web & Mobile</div>
+            <div class="slide-title" style="text-align:left; font-size:2rem;">웹 & 모바일 앱</div>
+            <div class="two-col" style="margin-top:2rem;">
+                <div class="card" style="border-color:rgba(10,132,255,0.3);">
+                    <div class="badge badge-green" style="margin-bottom:0.5rem;">Web</div>
+                    <div class="card-title" style="font-size:1.4rem;">VAPL</div>
+                    <div class="card-text" style="margin-top:0.8rem;">
+                        AI 바이브코딩 협업 플랫폼<br><br>
+                        → AI에게 말하면 프론트엔드 생성<br>
+                        → 실시간 프리뷰 & 디바이스 미리보기<br>
+                        → 화면 위 피드백 & 코멘트<br>
+                        → 매뉴얼 자동 생성<br>
+                        <br>
+                        <span class="highlight">Next.js + Prisma + Vercel AI SDK</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 16: VAPL Deep Dive -->
+    <div class="slide" data-slide="15">
+        <div class="content-box">
+            <div class="slide-label">Deep Dive</div>
+            <div class="slide-title" style="text-align:left; font-size:2rem;">VAPL — AI 바이브코딩 플랫폼</div>
+            <div class="slide-subtitle" style="text-align:left; font-size:1rem; margin-top:0.5rem;">
+                이 프로젝트 자체가 Claude Code로 만든 결과물
+            </div>
+            <div class="three-col" style="margin-top:2rem;">
+                <div class="card">
+                    <div class="card-title" style="color:#0a84ff;">Tech Stack</div>
+                    <div class="card-text">
+                        Next.js 16<br>
+                        TypeScript<br>
+                        Prisma + PostgreSQL<br>
+                        Vercel AI SDK<br>
+                        Monaco Editor<br>
+                        Puppeteer
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title" style="color:#30d158;">주요 기능</div>
+                    <div class="card-text">
+                        멀티 AI 프로바이더<br>
+                        실시간 코드 프리뷰<br>
+                        버전 관리 & 롤백<br>
+                        피드백 오버레이<br>
+                        매뉴얼 자동생성<br>
+                        MCP 서버
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title" style="color:#ff9f0a;">규모</div>
+                    <div class="card-text">
+                        48개 컴포넌트<br>
+                        44개 API 엔드포인트<br>
+                        9개 DB 모델<br>
+                        3단계 프로젝트 관리<br>
+                        디자인 가이드 시스템<br>
+                        Git 연동
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 17: Key Takeaway -->
+    <div class="slide" data-slide="16">
+        <div class="content-box" style="text-align:center;">
+            <div class="slide-label">Takeaway</div>
+            <div class="slide-title">AI는 도구이고<br>방향은 사람이 잡는다</div>
+            <div class="slide-subtitle" style="max-width:600px; margin:0 auto;">
+                설계를 먼저 하고, 규칙을 정의하고, 점검을 게을리하지 않으면<br>
+                AI와 함께 놀라운 속도로 만들 수 있습니다
+            </div>
+            <div style="margin-top:3rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                <span class="badge badge-blue" style="font-size:0.9rem; padding:8px 20px;">설계 먼저</span>
+                <span class="badge badge-green" style="font-size:0.9rem; padding:8px 20px;">규칙 정의</span>
+                <span class="badge badge-purple" style="font-size:0.9rem; padding:8px 20px;">점검 필수</span>
+                <span class="badge badge-orange" style="font-size:0.9rem; padding:8px 20px;">빠른 반복</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 18: Q&A -->
+    <div class="slide section-divider" data-slide="17">
+        <div class="slide-title">Q & A</div>
+        <div class="slide-subtitle" style="margin-top:1rem;">
+            <a href="https://www.mgang.app" target="_blank" style="color:#0a84ff; text-decoration:none;">www.mgang.app</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- Navigation -->
+<div class="nav-bar">
+    <button class="nav-btn" id="prevBtn" onclick="prevSlide()" disabled>← 이전</button>
+    <span class="page-num" id="pageNum">1 / 18</span>
+    <button class="nav-btn" id="nextBtn" onclick="nextSlide()">다음 →</button>
+</div>
+
+<script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+    const total = slides.length;
+
+    function showSlide(index, direction) {
+        slides.forEach((s, i) => {
+            s.classList.remove('active', 'prev');
+            if (i === index) {
+                s.classList.add('active');
+            } else if (direction === 'next' && i === index - 1) {
+                s.classList.add('prev');
+            }
+        });
+
+        document.getElementById('pageNum').textContent = `${index + 1} / ${total}`;
+        document.getElementById('prevBtn').disabled = index === 0;
+        document.getElementById('nextBtn').disabled = index === total - 1;
+        document.getElementById('progress').style.width = `${((index + 1) / total) * 100}%`;
+    }
+
+    function nextSlide() {
+        if (current < total - 1) {
+            current++;
+            showSlide(current, 'next');
+        }
+    }
+
+    function prevSlide() {
+        if (current > 0) {
+            current--;
+            showSlide(current, 'prev');
+        }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+            e.preventDefault();
+            nextSlide();
+        } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            prevSlide();
+        }
+    });
+
+    // Touch swipe
+    let touchStartX = 0;
+    document.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+    document.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) nextSlide();
+            else prevSlide();
+        }
+    });
+
+    // App grid
+    const apps = [
+        { name: 'BrewTop', desc: 'Homebrew GUI', icon: '/img/icons/BrewTop.png' },
+        { name: 'CaTerm', desc: '가벼운 터미널', icon: '/img/icons/CaTerm.png' },
+        { name: 'CaTower', desc: 'Docker 관리자', icon: '/img/icons/CaTower.png' },
+        { name: 'FRenamer', desc: '파일명 변환', icon: '/img/icons/FRenamer.png' },
+        { name: 'HiDPI', desc: 'Retina 활성화', icon: '/img/icons/HiDPI.png' },
+        { name: 'VAPL', desc: 'AI 바이브코딩', icon: '/img/icons/vapl.png' },
+    ];
+
+    const grid = document.getElementById('appGrid');
+    grid.innerHTML = apps.map(a => `
+        <div class="app-card">
+            <img src="${a.icon}?v4" alt="${a.name}" onerror="this.style.display='none'">
+            <div class="app-name">${a.name}</div>
+            <div class="app-desc">${a.desc}</div>
+        </div>
+    `).join('');
+
+    // Init
+    showSlide(0);
+</script>
+
+</body>
+</html>
