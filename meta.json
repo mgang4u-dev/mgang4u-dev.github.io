@@ -1,0 +1,139 @@
+{
+  "jidein": {
+    "id": "jidein",
+    "name": "사내용 자체 호스팅 풀스택 자동화 플랫폼",
+    "platform": "web",
+    "tagline": "외부 서비스 없이 DB·인증·도메인·배포까지 자동",
+    "description": "Vercel·Supabase 같은 외부 서비스 가입이나 추가 과금 없이, 자체 호스팅 인프라로 DB·인증·파일·도메인·SSL·배포를 전부 자동화하는 사내용 풀스택 플랫폼입니다. Claude Code 자연어 개발로 앱을 띄웁니다.",
+    "url": "https://home.jidein.com/",
+    "iconText": "DEV",
+    "iconBg": "#22c55e",
+    "iconColor": "#000",
+    "features": [
+      "DB·인증·파일 스토리지 자동 구성 (Supabase 대안)",
+      "도메인·SSL·배포 자동화 (Vercel 대안)",
+      "Claude Code 자연어 개발로 앱 생성",
+      "외부 서비스 가입·추가 과금 없는 자체 호스팅"
+    ],
+    "screenshots": [],
+    "video": ""
+  },
+  "BrewTop": {
+    "tagline": "Homebrew GUI 관리자",
+    "description": "BrewTop은 macOS의 Homebrew 패키지 관리자를 직관적인 GUI로 제공합니다. 터미널 명령어 없이 패키지를 검색하고 설치, 업데이트, 삭제할 수 있습니다.",
+    "features": [
+      "패키지 검색 및 원클릭 설치/삭제",
+      "업데이트 가능한 패키지 알림",
+      "설치된 패키지 목록 관리",
+      "Cask 앱 지원"
+    ],
+    "screenshots": [
+      "/screenshots/BrewTop/01.webp",
+      "/screenshots/BrewTop/02.webp",
+      "/screenshots/BrewTop/03.webp",
+      "/screenshots/BrewTop/04.webp",
+      "/screenshots/BrewTop/05.webp"
+    ],
+    "video": ""
+  },
+  "CaTerm": {
+    "tagline": "가벼운 macOS 터미널",
+    "description": "CaTerm은 빠르고 가벼운 macOS 전용 터미널 에뮬레이터입니다. 깔끔한 인터페이스와 필수 기능에 집중한 터미널입니다.",
+    "features": [
+      "빠른 실행 속도",
+      "탭 및 분할 화면",
+      "테마 커스터마이징",
+      "단축키 지원"
+    ],
+    "screenshots": [
+      "/screenshots/CaTerm/01.webp",
+      "/screenshots/CaTerm/02.webp",
+      "/screenshots/CaTerm/03.webp",
+      "/screenshots/CaTerm/04.webp",
+      "/screenshots/CaTerm/05.webp"
+    ],
+    "video": ""
+  },
+  "CaTower": {
+    "tagline": "Docker 컨테이너 관리자",
+    "description": "CaTower는 Docker 컨테이너와 이미지를 GUI로 편리하게 관리할 수 있는 macOS 앱입니다.",
+    "features": [
+      "컨테이너 시작/중지/재시작",
+      "로그 실시간 확인",
+      "이미지 관리",
+      "리소스 모니터링"
+    ],
+    "screenshots": [
+      "/screenshots/CaTower/01.webp",
+      "/screenshots/CaTower/02.webp",
+      "/screenshots/CaTower/03.webp",
+      "/screenshots/CaTower/04.webp",
+      "/screenshots/CaTower/05.webp",
+      "/screenshots/CaTower/06.webp",
+      "/screenshots/CaTower/07.webp"
+    ],
+    "video": ""
+  },
+  "HiDPI": {
+    "tagline": "2K 모니터 Retina 활성화",
+    "description": "HiDPI는 macOS에서 2K 외장 모니터를 Retina(HiDPI) 해상도로 사용할 수 있게 해주는 유틸리티입니다. 기본적으로 4K 이상에서만 지원되는 HiDPI 모드를 2K 모니터에서도 활성화하여 선명한 텍스트와 UI를 제공합니다.",
+    "features": [
+      "2K 모니터 HiDPI(Retina) 모드 활성화",
+      "커스텀 해상도 설정",
+      "외장 모니터 자동 감지",
+      "시스템 재시작 없이 적용"
+    ],
+    "screenshots": [
+      "/screenshots/HiDPI/01.webp",
+      "/screenshots/HiDPI/02.webp",
+      "/screenshots/HiDPI/03.webp",
+      "/screenshots/HiDPI/04.webp"
+    ],
+    "video": ""
+  },
+  "myWorkHour": {
+    "tagline": "그룹웨어 근무시간 자동 계산",
+    "platform": "chrome",
+    "description": "myWorkHour는 Jiran 그룹웨어의 출퇴근 기록을 읽어 근무시간을 자동으로 계산해주는 Chrome 확장 프로그램입니다. 공휴일을 반영해 주간 근무시간과 초과·잔여 시간을 한눈에 보여줍니다.<br><br>원작: <b>gavethesun</b> — 원작자 허락 하에 mgang이 버그 수정·재배포한 버전입니다.",
+    "features": [
+      "그룹웨어 출퇴근 기록 기반 근무시간 자동 집계",
+      "공휴일 자동 반영 (date.nager.at 연동)",
+      "초과·잔여 근무시간 계산",
+      "팝업 패널로 간편 확인"
+    ],
+    "screenshots": [
+      "/screenshots/myWorkHour/01.webp"
+    ],
+    "video": ""
+  },
+  "NeckGuard": {
+    "tagline": "웹캠 기반 자세·거북목 모니터",
+    "description": "NeckGuard는 웹캠과 MediaPipe Pose를 활용해 실시간으로 자세를 분석하는 macOS 앱입니다. 거북목·구부정한 자세를 감지하면 알려주고, 바른자세 통계를 기록합니다.",
+    "features": [
+      "웹캠 실시간 자세 분석 (MediaPipe Pose)",
+      "거북목·나쁜 자세 감지 및 알림",
+      "개인별 자세 캘리브레이션",
+      "최근 7일 바른자세 통계"
+    ],
+    "screenshots": [
+      "/screenshots/NeckGuard/01.webp",
+      "/screenshots/NeckGuard/02.webp",
+      "/screenshots/NeckGuard/03.webp",
+      "/screenshots/NeckGuard/04.webp"
+    ],
+    "video": ""
+  },
+  "rhwp": {
+    "tagline": "한글(HWP) 뷰어 & 에디터",
+    "description": "rhwp는 Rust + WebAssembly 기반의 오픈소스 HWP/HWPX 뷰어·에디터입니다. 설치 없이 어디서든 한글 문서를 열고 편집할 수 있으며, AI/웹/플랫폼에 자유롭게 임베드됩니다.<br><br>원작: <a href=\"https://github.com/edwardkim/rhwp\" target=\"_blank\" rel=\"noopener\" style=\"color:#2997ff;\">edwardkim/rhwp</a> — 본 앱은 해당 프로젝트를 macOS 네이티브 앱으로 리빌드한 버전입니다.",
+    "features": [
+      "HWP 5.0 / HWPX 파싱 및 렌더링",
+      "표, 수식, 차트, 이미지 완전 지원",
+      "다단 레이아웃 및 페이지 분할 엔진",
+      "한컴 호환 API(hwpctl 30 Actions)",
+      "WASM 기반 브라우저 네이티브 성능"
+    ],
+    "screenshots": [],
+    "video": ""
+  }
+}

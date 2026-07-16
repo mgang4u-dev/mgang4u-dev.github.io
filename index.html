@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mgang.app</title>
+    <link rel="icon" href="/favicon.ico?v=3">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #f5f5f7;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        .header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .refresh-btn {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid #333;
+            background: transparent;
+            color: #86868b;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .refresh-btn:hover { border-color: #555; color: #ccc; }
+        .refresh-btn:active { transform: scale(0.92); }
+        .refresh-btn svg { width: 15px; height: 15px; }
+        .refresh-btn.spinning { pointer-events: none; color: #2997ff; }
+        .refresh-btn.spinning svg { animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .header p {
+            color: #86868b;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        /* Filter */
+        .filter-bar {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .filter-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border-radius: 20px;
+            border: 1px solid #333;
+            background: transparent;
+            color: #86868b;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.15s;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        .filter-chip:hover {
+            border-color: #555;
+            color: #ccc;
+        }
+        .filter-chip.active {
+            background: #f5f5f7;
+            color: #000;
+            border-color: #f5f5f7;
+        }
+        .filter-chip .platform-icon {
+            opacity: 0.5;
+        }
+        .filter-chip.active .platform-icon {
+            opacity: 0.7;
+        }
+        .filter-chip .chip-count {
+            font-size: 0.7rem;
+            opacity: 0.6;
+        }
+
+        /* App List */
+        .app-list {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0.5rem 1.5rem 4rem;
+        }
+
+        .app-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            cursor: pointer;
+            transition: opacity 0.15s;
+        }
+        .app-item:last-child { border-bottom: none; }
+        .app-item:hover { opacity: 0.8; }
+        .app-item:active { opacity: 0.6; }
+        .app-item.hidden { display: none; }
+
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            flex-shrink: 0;
+            background: #1c1c1e;
+            overflow: hidden;
+        }
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .app-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #f5f5f7;
+            line-height: 1.3;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .platform-icon {
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+            opacity: 0.4;
+        }
+        .platform-icon svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            font-size: 0.58rem;
+            font-weight: 700;
+            padding: 1px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.02em;
+            flex-shrink: 0;
+            cursor: help;
+            position: relative;
+        }
+        .status-badge[title]:hover::after {
+            content: attr(title);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1c1c1e;
+            color: #ccc;
+            font-size: 0.7rem;
+            font-weight: 400;
+            padding: 4px 10px;
+            border-radius: 6px;
+            white-space: nowrap;
+            z-index: 100;
+            pointer-events: none;
+            border: 1px solid #333;
+        }
+        .badge-alpha {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+        }
+        .badge-beta {
+            background: rgba(234, 179, 8, 0.15);
+            color: #eab308;
+        }
+        .badge-stable {
+            background: rgba(52, 211, 153, 0.15);
+            color: #34d399;
+        }
+        .badge-preview {
+            background: rgba(168, 85, 247, 0.15);
+            color: #a855f7;
+        }
+        .badge-dev {
+            background: rgba(59, 130, 246, 0.15);
+            color: #3b82f6;
+        }
+
+        .app-tagline {
+            font-size: 0.82rem;
+            color: #86868b;
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .app-version {
+            font-size: 0.72rem;
+            color: #48484a;
+            margin-top: 2px;
+        }
+        .app-rating {
+            font-size: 0.72rem;
+            color: #f5c518;
+            margin-top: 3px;
+            font-weight: 600;
+        }
+        .app-rating .rc { color: #86868b; font-weight: 400; }
+        .app-downloads {
+            font-size: 0.72rem;
+            color: #48484a;
+        }
+        .app-version .app-downloads {
+            margin-left: 8px;
+        }
+        .app-downloads svg {
+            width: 10px;
+            height: 10px;
+            vertical-align: -1px;
+            margin-right: 2px;
+        }
+
+        .app-get { flex-shrink: 0; }
+        .btn-get {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 72px;
+            height: 32px;
+            padding: 0 16px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            border-radius: 16px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.15s;
+            background: #1c1c1e;
+            color: #2997ff;
+        }
+        .btn-get:hover { background: #2c2c2e; }
+        .btn-get:active { transform: scale(0.95); }
+
+        .btn-open {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 72px;
+            height: 32px;
+            padding: 0 16px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            border-radius: 16px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.15s;
+            background: #1c1c1e;
+            color: #34d399;
+        }
+        .btn-open:hover { background: #2c2c2e; }
+        .btn-open:active { transform: scale(0.95); }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            color: #48484a;
+            padding: 3rem 1rem;
+            font-size: 0.85rem;
+            display: none;
+        }
+        .empty-state.visible { display: block; }
+
+        .loading {
+            text-align: center;
+            color: #48484a;
+            padding: 4rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #333;
+            font-size: 0.75rem;
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+
+        @media (max-width: 480px) {
+            .header { padding: 3rem 1rem 0.5rem; }
+            .filter-bar { padding: 0.8rem 1rem; }
+            .app-list { padding: 0.5rem 1rem 3rem; }
+            .app-icon { width: 52px; height: 52px; border-radius: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p>Side Projects</p>
+        <button id="refreshBtn" class="refresh-btn" title="버전 갱신" aria-label="버전 갱신">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 4v6h-6M1 20v-6h6"/>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+        </button>
+    </div>
+    <div class="filter-bar" id="filters"></div>
+    <div class="app-list" id="apps">
+        <div class="loading">Loading...</div>
+    </div>
+    <div class="footer">&copy; 2026 mgang.app</div>
+
+    <script>
+        var PLATFORMS = {
+            all:     { label: '전체' },
+            web:     { label: 'Web' },
+            chrome:  { label: '크롬확장' },
+            macos:   { label: 'macOS' },
+            windows: { label: 'Windows' },
+            ios:     { label: 'iOS' },
+            android: { label: 'Android' },
+            androidtv: { label: 'Android TV' }
+        };
+
+        var BADGE = {
+            macos:   '<span class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg></span>',
+            web:     '<span class="platform-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>',
+            chrome:  '<span class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.16 9.5h6.45a9.99 9.99 0 0 1-3.3 11.38l-3.04-5.27a3.5 3.5 0 0 0-.11-6.1zM12 8a4 4 0 0 0-3.9 4.86L4.2 6.12A9.99 9.99 0 0 1 19.4 7.5h-6.08A4 4 0 0 0 12 8zm-1.16 7.78a3.5 3.5 0 0 0 4.06-.78l.02.02-3.04 5.94A10 10 0 0 1 3.1 8.25l3.65 6.32a3.5 3.5 0 0 0 4.09 1.21zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg></span>',
+            windows: '<span class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 12V6.75l6-1V12H3zm7-6.5L22 3v9H10V5.5zM10 13h12v9l-12-2V13zm-7 0h6v5.75l-6-1V13z"/></svg></span>',
+            ios:     '<span class="platform-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="1" width="14" height="22" rx="3"/><line x1="5" y1="18" x2="19" y2="18"/><circle cx="12" cy="20.5" r="1"/></svg></span>',
+            android: '<span class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V7H6v11zM3.5 7C2.67 7 2 7.67 2 8.5v7c0 .83.67 1.5 1.5 1.5S5 16.33 5 15.5v-7C5 7.67 4.33 7 3.5 7zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.84 5.84 0 0 0 12 0c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31A5.983 5.983 0 0 0 6 6h12c0-2.21-1.2-4.15-2.97-5.18zM10 4H9V3h1v1zm5 0h-1V3h1v1z"/></svg></span>',
+            androidtv: '<span class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg></span>'
+        };
+
+        var STATUS = {
+            'BrewTop': 'stable',
+            'CaTerm': 'stable',
+            'CaTower': 'stable',
+            'HiDPI': 'stable',
+            'NeckGuard': 'stable',
+            'myWorkHour': 'stable',
+            'rhwp': 'beta'
+        };
+
+        var STATUS_BADGE = {
+            alpha:   '<span class="status-badge badge-alpha" title="초기 버전으로 기능이 제대로 동작하지 않을 수 있습니다">Alpha</span>',
+            beta:    '<span class="status-badge badge-beta" title="사용 가능하나 불안정할 수 있습니다">Beta</span>',
+            stable:  '<span class="status-badge badge-stable" title="정식 버전으로 안정적으로 사용할 수 있습니다">Stable</span>',
+            preview: '<span class="status-badge badge-preview">Preview</span>'
+        };
+
+        var ICON_VER = 'v6';
+
+        // Web apps (not from Gitea releases)
+        var WEB_APPS = ['jidein'];
+
+        var currentFilter = 'all';
+
+        function getAppName(repoName) {
+            return repoName.replace(/-releases$/, '');
+        }
+
+        function getDmg(assets) {
+            return assets.find(function(a) { return a.name.endsWith('.dmg'); });
+        }
+
+        function getApk(assets) {
+            return assets.find(function(a) { return a.name.endsWith('.apk'); });
+        }
+
+        function getZip(assets) {
+            return assets.find(function(a) { return a.name.endsWith('.zip'); });
+        }
+
+        function getDownload(assets) {
+            return getDmg(assets) || getApk(assets) || getZip(assets);
+        }
+
+        function goDetail(appId, platform, e) {
+            if (e.target.closest('.btn-get') || e.target.closest('.btn-open')) return;
+            window.location.href = 'detail.html?app=' + encodeURIComponent(appId) + (platform !== 'macos' ? '&platform=' + platform : '');
+        }
+
+        function setFilter(platform) {
+            currentFilter = platform;
+            document.querySelectorAll('.filter-chip').forEach(function(c) {
+                c.classList.toggle('active', c.dataset.platform === platform);
+            });
+            document.querySelectorAll('.app-item').forEach(function(item) {
+                var show = platform === 'all' || item.dataset.platform === platform;
+                item.classList.toggle('hidden', !show);
+            });
+            var visible = document.querySelectorAll('.app-item:not(.hidden)').length;
+            var empty = document.getElementById('empty-state');
+            if (empty) empty.classList.toggle('visible', visible === 0);
+        }
+
+        function renderFilters(counts) {
+            var bar = document.getElementById('filters');
+            bar.innerHTML = '';
+            Object.keys(PLATFORMS).forEach(function(key) {
+                var count = key === 'all' ? Object.values(counts).reduce(function(a,b){return a+b;},0) : (counts[key] || 0);
+                if (key !== 'all' && count === 0) return;
+                var chip = document.createElement('button');
+                chip.className = 'filter-chip' + (key === 'all' ? ' active' : '');
+                chip.dataset.platform = key;
+                chip.innerHTML = (BADGE[key] ? BADGE[key] + ' ' : '') + PLATFORMS[key].label + ' <span class="chip-count">' + count + '</span>';
+                chip.onclick = function() { setFilter(key); };
+                bar.appendChild(chip);
+            });
+        }
+
+        async function load() {
+            try {
+                var [appsRes, metaRes, revRes] = await Promise.all([
+                    fetch('/apps.json'),
+                    fetch('/meta.json'),
+                    fetch('/api/reviews/summary').catch(function() { return null; })
+                ]);
+                if (!appsRes.ok) throw new Error('fetch failed');
+                var apps = await appsRes.json();
+                var metaCache = metaRes.ok ? await metaRes.json() : {};
+                var reviews = (revRes && revRes.ok) ? await revRes.json() : {};
+
+                var grid = document.getElementById('apps');
+                grid.innerHTML = '';
+
+                var counts = {};
+                var allItems = [];
+
+                // Apps from Gitea releases
+                apps.forEach(function(app) {
+                    var appName = getAppName(app.name);
+                    var meta = metaCache[appName] || {};
+                    var platform = meta.platform || 'macos';
+                    counts[platform] = (counts[platform] || 0) + 1;
+                    var tagline = meta.tagline || app.description || '';
+                    var version = app.tag_name || '';
+                    var dl = getDownload(app.assets || []);
+
+                    allItems.push({
+                        id: appName,
+                        name: (meta && meta.name) ? meta.name : appName,
+                        platform: platform,
+                        tagline: tagline,
+                        version: version,
+                        downloads: app.downloads || 0,
+                        dmgUrl: dl ? dl.url : null,
+                        url: null,
+                        publishedAt: app.published_at || '',
+                        iconUrl: '/img/icons/' + appName + '.png?' + ICON_VER,
+                        iconText: meta.iconText || null,
+                        iconBg: meta.iconBg || null,
+                        iconColor: meta.iconColor || null
+                    });
+                });
+
+                // Web apps
+                WEB_APPS.forEach(function(id) {
+                    var meta = metaCache[id] || {};
+                    var platform = 'web';
+                    counts[platform] = (counts[platform] || 0) + 1;
+
+                    allItems.push({
+                        id: id,
+                        name: (meta && meta.name) ? meta.name : id.charAt(0).toUpperCase() + id.slice(1),
+                        platform: platform,
+                        tagline: meta.tagline || '',
+                        version: meta.version || '',
+                        downloads: 0,
+                        dmgUrl: null,
+                        url: meta.url || null,
+                        publishedAt: meta.publishedAt || '',
+                        iconUrl: '/img/icons/' + id + '.png?' + ICON_VER,
+                        iconText: meta.iconText || null,
+                        iconBg: meta.iconBg || null,
+                        iconColor: meta.iconColor || null
+                    });
+                });
+
+                renderFilters(counts);
+
+                // Sort by platform order, then by publish date desc within platform
+                var platformOrder = ['web', 'chrome', 'macos', 'windows', 'ios', 'android', 'androidtv'];
+                allItems.sort(function(a, b) {
+                    var p = platformOrder.indexOf(a.platform) - platformOrder.indexOf(b.platform);
+                    if (p !== 0) return p;
+                    return (b.publishedAt || '').localeCompare(a.publishedAt || '');
+                });
+
+                allItems.forEach(function(item) {
+                    var el = document.createElement('div');
+                    el.className = 'app-item';
+                    el.dataset.platform = item.platform;
+                    el.onclick = function(e) { goDetail(item.id, item.platform, e); };
+
+                    var actionBtn = '';
+                    if (item.platform === 'web' && item.url) {
+                        actionBtn = '<a class="btn-open" href="' + item.url + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">열기</a>';
+                    } else if (item.dmgUrl) {
+                        actionBtn = '<a class="btn-get" href="' + item.dmgUrl + '" onclick="event.stopPropagation()">받기</a>';
+                    }
+
+                    var iconHtml = item.iconText
+                        ? '<div class="app-icon" style="background:' + (item.iconBg || '#1c1c1e') + ';display:flex;align-items:center;justify-content:center;font-weight:800;letter-spacing:-0.03em;font-size:1.05rem;color:' + (item.iconColor || '#fff') + '">' + item.iconText + '</div>'
+                        : '<div class="app-icon"><img src="' + item.iconUrl + '" alt="' + item.name + '" onerror="this.style.display=\'none\'"></div>';
+
+                    el.innerHTML =
+                        iconHtml +
+                        '<div class="app-info">' +
+                            '<div class="app-name">' + item.name + ' ' + (BADGE[item.platform] || '') + ' ' + (STATUS_BADGE[STATUS[item.name]] || '') + '</div>' +
+                            '<div class="app-tagline">' + item.tagline + '</div>' +
+                            (item.version ? '<div class="app-version">' + item.version + '</div>' : '') +
+                            (function() {
+                                var rv = reviews[item.id];
+                                return (rv && rv.count) ? '<div class="app-rating">★ ' + Number(rv.avg).toFixed(1) + ' <span class="rc">(' + rv.count + ')</span></div>' : '';
+                            })() +
+                        '</div>' +
+                        '<div class="app-get">' + actionBtn + '</div>';
+
+                    grid.appendChild(el);
+                });
+
+                // Empty state
+                var empty = document.createElement('div');
+                empty.id = 'empty-state';
+                empty.className = 'empty-state';
+                empty.textContent = '준비 중입니다';
+                grid.appendChild(empty);
+
+                // 재렌더 시 현재 필터 유지
+                setFilter(currentFilter);
+
+            } catch (e) {
+                document.getElementById('apps').innerHTML = '<div class="loading">Failed to load</div>';
+            }
+        }
+
+        // 버전 갱신 트리거 (update-apps.sh → apps.json 재생성 후 목록 다시 그림)
+        async function triggerUpdate(force) {
+            var btn = document.getElementById('refreshBtn');
+            if (btn) btn.classList.add('spinning');
+            try {
+                await fetch('/api/update-apps' + (force ? '?force=1' : ''), { cache: 'no-store' });
+                await load();
+            } catch (e) {}
+            if (btn) btn.classList.remove('spinning');
+        }
+
+        // 접속 시 백그라운드 갱신 (브라우저당 5분에 1회로 제한)
+        function autoRefresh() {
+            var k = 'mgang_last_refresh', now = Date.now(), last = 0;
+            try { last = parseInt(localStorage.getItem(k) || '0', 10); } catch (e) {}
+            if (now - last < 5 * 60 * 1000) return;
+            try { localStorage.setItem(k, String(now)); } catch (e) {}
+            triggerUpdate(false);
+        }
+
+        var refreshBtnEl = document.getElementById('refreshBtn');
+        if (refreshBtnEl) refreshBtnEl.addEventListener('click', function() { triggerUpdate(true); });
+
+        load().then(autoRefresh);
+
+    </script>
+</body>
+</html>

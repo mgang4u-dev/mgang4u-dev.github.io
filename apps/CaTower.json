@@ -1,0 +1,20 @@
+{
+    "tagline": "Docker 컨테이너 관리자",
+    "description": "CaTower는 Docker 컨테이너와 이미지를 GUI로 편리하게 관리할 수 있는 macOS 앱입니다.",
+    "features": [
+        "컨테이너 시작/중지/재시작",
+        "로그 실시간 확인",
+        "이미지 관리",
+        "리소스 모니터링"
+    ],
+    "screenshots": [
+        "/screenshots/CaTower/01.webp",
+        "/screenshots/CaTower/02.webp",
+        "/screenshots/CaTower/03.webp",
+        "/screenshots/CaTower/04.webp",
+        "/screenshots/CaTower/05.webp",
+        "/screenshots/CaTower/06.webp",
+        "/screenshots/CaTower/07.webp"
+    ],
+    "video": ""
+}

@@ -1,0 +1,17 @@
+{
+    "tagline": "2K 모니터 Retina 활성화",
+    "description": "HiDPI는 macOS에서 2K 외장 모니터를 Retina(HiDPI) 해상도로 사용할 수 있게 해주는 유틸리티입니다. 기본적으로 4K 이상에서만 지원되는 HiDPI 모드를 2K 모니터에서도 활성화하여 선명한 텍스트와 UI를 제공합니다.",
+    "features": [
+        "2K 모니터 HiDPI(Retina) 모드 활성화",
+        "커스텀 해상도 설정",
+        "외장 모니터 자동 감지",
+        "시스템 재시작 없이 적용"
+    ],
+    "screenshots": [
+        "/screenshots/HiDPI/01.webp",
+        "/screenshots/HiDPI/02.webp",
+        "/screenshots/HiDPI/03.webp",
+        "/screenshots/HiDPI/04.webp"
+    ],
+    "video": ""
+}
