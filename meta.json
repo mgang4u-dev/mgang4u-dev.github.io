@@ -147,7 +147,9 @@
       "회계처리·ERP 전표처리 가이드 (자동 표시 스위치)",
       "대상 카드일 때 자동 패널 열기, 다크/라이트/시스템 테마"
     ],
-    "screenshots": [],
+    "screenshots": [
+      "/screenshots/erpAssist/01.webp"
+    ],
     "video": ""
   }
 }
