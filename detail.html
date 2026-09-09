@@ -514,6 +514,15 @@
         var ICON_VER = 'v6';
         var WEB_APPS = ['jidein'];
 
+        // 데이터 파일 캐시 버스터.
+        // apps.json/meta.json은 Cache-Control max-age=14400(4시간)으로 내려와서
+        // 그냥 fetch하면 브라우저 캐시 때문에 갱신이 최대 4시간 늦게 보인다.
+        // 5분 버킷을 붙여 갱신은 5분 내 반영되면서 엣지 캐시도 그대로 살린다.
+        // force=true(수동 새로고침)면 매번 새 값으로 완전히 우회한다.
+        function cb(force) {
+            return '?t=' + (force ? Date.now() : Math.floor(Date.now() / 300000));
+        }
+
         var STATUS = {
             'BrewTop': 'stable', 'CaTerm': 'stable', 'CaTower': 'stable', 'HiDPI': 'stable', 'NeckGuard': 'stable', 'myWorkHour': 'stable', 'erpAssist': 'stable', 'rhwp': 'beta'
         };
@@ -543,8 +552,8 @@
 
             try {
                 var [appsRes, metaRes] = await Promise.all([
-                    fetch('/apps.json'),
-                    fetch('/meta.json')
+                    fetch('/apps.json' + cb()),
+                    fetch('/meta.json' + cb())
                 ]);
 
                 var apps = await appsRes.json();

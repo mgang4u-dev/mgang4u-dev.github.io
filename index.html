@@ -383,6 +383,15 @@
 
         var currentFilter = 'all';
 
+        // 데이터 파일 캐시 버스터.
+        // apps.json/meta.json은 Cache-Control max-age=14400(4시간)으로 내려와서
+        // 그냥 fetch하면 브라우저 캐시 때문에 갱신이 최대 4시간 늦게 보인다.
+        // 5분 버킷을 붙여 갱신은 5분 내 반영되면서 엣지 캐시도 그대로 살린다.
+        // force=true(수동 새로고침)면 매번 새 값으로 완전히 우회한다.
+        function cb(force) {
+            return '?t=' + (force ? Date.now() : Math.floor(Date.now() / 300000));
+        }
+
         function getAppName(repoName) {
             return repoName.replace(/-releases$/, '');
         }
@@ -437,11 +446,11 @@
             });
         }
 
-        async function load() {
+        async function load(force) {
             try {
                 var [appsRes, metaRes, revRes] = await Promise.all([
-                    fetch('/apps.json'),
-                    fetch('/meta.json'),
+                    fetch('/apps.json' + cb(force)),
+                    fetch('/meta.json' + cb(force)),
                     fetch('/api/reviews/summary').catch(function() { return null; })
                 ]);
                 if (!appsRes.ok) throw new Error('fetch failed');
@@ -563,30 +572,16 @@
             }
         }
 
-        // 버전 갱신 트리거 (update-apps.sh → apps.json 재생성 후 목록 다시 그림)
-        async function triggerUpdate(force) {
-            var btn = document.getElementById('refreshBtn');
-            if (btn) btn.classList.add('spinning');
-            try {
-                await fetch('/api/update-apps' + (force ? '?force=1' : ''), { cache: 'no-store' });
-                await load();
-            } catch (e) {}
-            if (btn) btn.classList.remove('spinning');
-        }
-
-        // 접속 시 백그라운드 갱신 (브라우저당 5분에 1회로 제한)
-        function autoRefresh() {
-            var k = 'mgang_last_refresh', now = Date.now(), last = 0;
-            try { last = parseInt(localStorage.getItem(k) || '0', 10); } catch (e) {}
-            if (now - last < 5 * 60 * 1000) return;
-            try { localStorage.setItem(k, String(now)); } catch (e) {}
-            triggerUpdate(false);
-        }
-
+        // 새로고침 버튼: 캐시를 완전히 우회해 목록만 다시 그림
+        // (구 /api/update-apps는 맥미니와 함께 사라져 더 이상 호출하지 않는다)
         var refreshBtnEl = document.getElementById('refreshBtn');
-        if (refreshBtnEl) refreshBtnEl.addEventListener('click', function() { triggerUpdate(true); });
+        if (refreshBtnEl) refreshBtnEl.addEventListener('click', async function() {
+            refreshBtnEl.classList.add('spinning');
+            try { await load(true); } catch (e) {}
+            refreshBtnEl.classList.remove('spinning');
+        });
 
-        load().then(autoRefresh);
+        load();
 
     </script>
 </body>
