@@ -105,6 +105,22 @@
         "downloads": 7
     },
     {
+        "name": "erpAssist-releases",
+        "full_name": "mgang4u/erpAssist-releases",
+        "description": "",
+        "html_url": "https://git.mgang.app/mgang4u/erpAssist-releases",
+        "tag_name": "v1.0.50",
+        "published_at": "2026-09-09T05:48:09Z",
+        "assets": [
+            {
+                "name": "erpAssist-v1.0.50.zip",
+                "url": "https://git.mgang.app/mgang4u/erpAssist-releases/releases/download/v1.0.50/erpAssist-v1.0.50.zip",
+                "download_count": 0
+            }
+        ],
+        "downloads": 0
+    },
+    {
         "name": "myWorkHour-releases",
         "full_name": "mgang4u/myWorkHour-releases",
         "description": "",
