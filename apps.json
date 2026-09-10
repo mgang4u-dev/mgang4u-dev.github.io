@@ -141,12 +141,12 @@
         "full_name": "mgang4u/noteAssist-releases",
         "description": "noteAssist v1.0.6",
         "html_url": "https://git.mgang.app/mgang4u/noteAssist-releases",
-        "tag_name": "v1.0.9",
-        "published_at": "2026-09-10T06:32:43Z",
+        "tag_name": "v1.0.10",
+        "published_at": "2026-09-10T06:36:23Z",
         "assets": [
             {
-                "name": "noteAssist-v1.0.9.zip",
-                "url": "https://git.mgang.app/mgang4u/noteAssist-releases/releases/download/v1.0.9/noteAssist-v1.0.9.zip",
+                "name": "noteAssist-v1.0.10.zip",
+                "url": "https://git.mgang.app/mgang4u/noteAssist-releases/releases/download/v1.0.10/noteAssist-v1.0.10.zip",
                 "download_count": 0
             }
         ],
