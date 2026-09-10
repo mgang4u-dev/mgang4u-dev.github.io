@@ -151,5 +151,21 @@
       "/screenshots/erpAssist/01.webp"
     ],
     "video": ""
+  },
+  "noteAssist": {
+    "tagline": "노트 도우미",
+    "platform": "chrome",
+    "description": "noteAssist는 오피스노트(<code>officenote.ai</code>)를 조금 더 편하게 쓰기 위한 Chrome 확장 프로그램입니다. 넓게 보기를 매번 켜지 않아도 되게 하고, 칼럼 많은 표를 한 화면에 담고, Jira 이슈 링크를 손으로 걸지 않아도 되게 합니다. 크롬 확장 목록에는 <code>noteAssist</code>, 패널 안에서는 <b>노트 도우미</b>로 표시됩니다.<br><br>기능은 툴바 아이콘을 눌러 하나씩 켜고 끕니다. 설정은 브라우저에만 저장됩니다.",
+    "features": [
+      "넓게 보기 기본 활성화 — 페이지를 열 때마다 켤 필요 없음",
+      "표 여백 축소 — 칼럼 많은 표를 한 화면에 (글자 크기는 그대로)",
+      "Jira 링크 도우미 — 이슈 코드를 드래그하면 링크 (단축키 ⌘⇧J)",
+      "Jira 주소 붙여넣기 자동 축약 — 보이는 건 코드값, 걸린 건 전체 주소",
+      "기능별 ON/OFF 토글"
+    ],
+    "screenshots": [
+      "/screenshots/noteAssist/01.webp"
+    ],
+    "video": ""
   }
 }
