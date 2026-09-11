@@ -115,10 +115,10 @@
             {
                 "name": "erpAssist-v1.0.54.zip",
                 "url": "https://git.mgang.app/mgang4u/erpAssist-releases/releases/download/v1.0.54/erpAssist-v1.0.54.zip",
-                "download_count": 1
+                "download_count": 11
             }
         ],
-        "downloads": 1
+        "downloads": 11
     },
     {
         "name": "myWorkHour-releases",
@@ -141,15 +141,15 @@
         "full_name": "mgang4u/noteAssist-releases",
         "description": "noteAssist v1.0.6",
         "html_url": "https://git.mgang.app/mgang4u/noteAssist-releases",
-        "tag_name": "v1.0.10",
-        "published_at": "2026-09-10T06:36:23Z",
+        "tag_name": "v1.0.11",
+        "published_at": "2026-09-11T07:54:41Z",
         "assets": [
             {
-                "name": "noteAssist-v1.0.10.zip",
-                "url": "https://git.mgang.app/mgang4u/noteAssist-releases/releases/download/v1.0.10/noteAssist-v1.0.10.zip",
-                "download_count": 1
+                "name": "noteAssist-v1.0.11.zip",
+                "url": "https://git.mgang.app/mgang4u/noteAssist-releases/releases/download/v1.0.11/noteAssist-v1.0.11.zip",
+                "download_count": 0
             }
         ],
-        "downloads": 1
+        "downloads": 0
     }
 ]
