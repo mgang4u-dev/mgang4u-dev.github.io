@@ -141,12 +141,12 @@
         "full_name": "mgang4u/workAssist-releases",
         "description": "workAssist v1.1.0",
         "html_url": "https://git.mgang.app/mgang4u/workAssist-releases",
-        "tag_name": "v1.1.0",
-        "published_at": "2026-09-15T04:42:27Z",
+        "tag_name": "v1.1.4",
+        "published_at": "2026-09-15T06:15:38Z",
         "assets": [
             {
-                "name": "workAssist-v1.1.0.zip",
-                "url": "https://git.mgang.app/mgang4u/workAssist-releases/releases/download/v1.1.0/workAssist-v1.1.0.zip",
+                "name": "workAssist-v1.1.4.zip",
+                "url": "https://git.mgang.app/mgang4u/workAssist-releases/releases/download/v1.1.4/workAssist-v1.1.4.zip",
                 "download_count": 0
             }
         ],
