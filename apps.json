@@ -10,7 +10,7 @@
             {
                 "name": "BrewTop.app.tar.gz",
                 "url": "https://git.mgang.app/mgang4u/BrewTop-releases/releases/download/v0.3.0/BrewTop.app.tar.gz",
-                "download_count": 2
+                "download_count": 3
             },
             {
                 "name": "BrewTop_0.3.0_aarch64.dmg",
@@ -18,7 +18,7 @@
                 "download_count": 3
             }
         ],
-        "downloads": 5
+        "downloads": 6
     },
     {
         "name": "CaTerm-releases",
