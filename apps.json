@@ -31,15 +31,15 @@
             {
                 "name": "CaTerm.app.tar.gz",
                 "url": "https://git.mgang.app/mgang4u/CaTerm-releases/releases/download/v1.1.3/CaTerm.app.tar.gz",
-                "download_count": 15
+                "download_count": 19
             },
             {
                 "name": "CaTerm_1.1.3_aarch64.dmg",
                 "url": "https://git.mgang.app/mgang4u/CaTerm-releases/releases/download/v1.1.3/CaTerm_1.1.3_aarch64.dmg",
-                "download_count": 13
+                "download_count": 16
             }
         ],
-        "downloads": 28
+        "downloads": 35
     },
     {
         "name": "CaTower-releases",
@@ -131,10 +131,10 @@
             {
                 "name": "myWorkHour-v1.0.47.zip",
                 "url": "https://git.mgang.app/mgang4u/myWorkHour-releases/releases/download/v1.0.47/myWorkHour-v1.0.47.zip",
-                "download_count": 12
+                "download_count": 14
             }
         ],
-        "downloads": 12
+        "downloads": 14
     },
     {
         "name": "workAssist-releases",
