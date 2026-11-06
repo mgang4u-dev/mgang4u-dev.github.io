@@ -105,6 +105,27 @@
         "downloads": 4
     },
     {
+        "name": "SecureKM-releases",
+        "full_name": "mgang4u/SecureKM-releases",
+        "description": "SecureKM v0.1.3",
+        "html_url": "https://git.mgang.app/mgang4u/SecureKM-releases",
+        "tag_name": "v0.1.3",
+        "published_at": "2026-11-06T09:41:09Z",
+        "assets": [
+            {
+                "name": "SecureKM.app.tar.gz",
+                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v0.1.3/SecureKM.app.tar.gz",
+                "download_count": 0
+            },
+            {
+                "name": "SecureKM_0.1.3_aarch64.dmg",
+                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v0.1.3/SecureKM_0.1.3_aarch64.dmg",
+                "download_count": 0
+            }
+        ],
+        "downloads": 0
+    },
+    {
         "name": "erpAssist-releases",
         "full_name": "mgang4u/erpAssist-releases",
         "description": "ERP 도우미 v1.0.34",
