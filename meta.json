@@ -170,5 +170,26 @@
       "/screenshots/workAssist/03.webp?v=1.1.4"
     ],
     "video": ""
+  },
+  "SecureKM": {
+    "tagline": "서버 접속 키 암호화 금고",
+    "description": "SecureKM은 SSH 개인키 같은 서버 접속 키를 AES-256 암호화 금고에 보관하고, 필요할 때만 열어 쓰는 macOS 메뉴바 앱입니다. 열어 둔 채 잊어도 정한 시간이 지나면 알아서 닫히고, 잠자기·화면 잠금 시에는 바로 닫힙니다.<br><br>금고는 macOS 표준 암호화 디스크 이미지라 디스크에는 항상 암호문만 남고, 앱 없이도 Finder에서 비밀번호로 열 수 있습니다. 요구 사항: macOS 14 이상, Apple Silicon.",
+    "features": [
+      "AES-256 암호화 금고 — 디스크에는 항상 암호문만 남음",
+      "Touch ID로 열기 — 비밀번호는 키체인에 보관",
+      "자동 잠금 — 메뉴바에 남은 시간 표시, 닫히기 1분 전 알림에서 바로 연장",
+      "자리를 비우면 닫기 — 잠자기·화면 잠금 시 즉시 닫힘",
+      "세대별 백업 — 바뀐 내용이 있을 때 암호화 백업, USB·NAS 등 추가 경로에도 사본",
+      "쓰던 키 폴더 가져오기 — 권한 600 자동 정리",
+      "안전한 자동 업데이트 — 개발자 서명과 Apple 공증 확인 후 설치"
+    ],
+    "screenshots": [
+      "/screenshots/SecureKM/01.webp",
+      "/screenshots/SecureKM/02.webp",
+      "/screenshots/SecureKM/03.webp",
+      "/screenshots/SecureKM/04.webp",
+      "/screenshots/SecureKM/05.webp"
+    ],
+    "video": ""
   }
 }
