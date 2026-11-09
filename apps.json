@@ -107,23 +107,23 @@
     {
         "name": "SecureKM-releases",
         "full_name": "mgang4u/SecureKM-releases",
-        "description": "SecureKM v0.1.4",
+        "description": "SecureKM v0.1.7",
         "html_url": "https://git.mgang.app/mgang4u/SecureKM-releases",
-        "tag_name": "v0.1.4",
-        "published_at": "2026-11-09T00:45:49Z",
+        "tag_name": "v0.1.7",
+        "published_at": "2026-11-09T01:27:10Z",
         "assets": [
             {
                 "name": "SecureKM.app.tar.gz",
-                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v0.1.4/SecureKM.app.tar.gz",
-                "download_count": 0
+                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v0.1.7/SecureKM.app.tar.gz",
+                "download_count": 2
             },
             {
-                "name": "SecureKM_0.1.4_aarch64.dmg",
-                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v0.1.4/SecureKM_0.1.4_aarch64.dmg",
-                "download_count": 0
+                "name": "SecureKM_0.1.7_aarch64.dmg",
+                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v0.1.7/SecureKM_0.1.7_aarch64.dmg",
+                "download_count": 1
             }
         ],
-        "downloads": 0
+        "downloads": 3
     },
     {
         "name": "erpAssist-releases",
