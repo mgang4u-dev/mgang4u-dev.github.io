@@ -107,19 +107,19 @@
     {
         "name": "SecureKM-releases",
         "full_name": "mgang4u/SecureKM-releases",
-        "description": "SecureKM v0.1.13",
+        "description": "SecureKM v0.1.14",
         "html_url": "https://git.mgang.app/mgang4u/SecureKM-releases",
-        "tag_name": "v0.1.13",
-        "published_at": "2026-11-09T04:09:32Z",
+        "tag_name": "v0.1.14",
+        "published_at": "2026-11-09T04:24:35Z",
         "assets": [
             {
                 "name": "SecureKM.app.tar.gz",
-                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v0.1.13/SecureKM.app.tar.gz",
+                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v0.1.14/SecureKM.app.tar.gz",
                 "download_count": 0
             },
             {
-                "name": "SecureKM_0.1.13_aarch64.dmg",
-                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v0.1.13/SecureKM_0.1.13_aarch64.dmg",
+                "name": "SecureKM_0.1.14_aarch64.dmg",
+                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v0.1.14/SecureKM_0.1.14_aarch64.dmg",
                 "download_count": 0
             }
         ],
