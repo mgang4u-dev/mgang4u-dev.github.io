@@ -191,5 +191,25 @@
       "/screenshots/SecureKM/05.webp"
     ],
     "video": ""
+  },
+  "MgangTerm": {
+    "tagline": "Claude Code 중심 맥 터미널",
+    "description": "MgangTerm은 Claude Code를 중심에 둔 macOS 전용 터미널입니다. 탭과 분할 패널로 Claude·셸·SSH를 한 창에 띄우고, 사이드바에서 프로젝트와 서버를 골라 바로 엽니다. Claude가 작업 중인지, 권한 승인을 기다리는지, 끝났는지를 탭·사이드바·알림으로 알려 줍니다.<br><br>SFTP 파일 전송, SSH 비밀번호·키체인 등록, 설정 내보내기·가져오기까지 터미널 하나로 처리합니다. 요구 사항: macOS 14 이상.",
+    "features": [
+      "탭 · 분할 패널 — 드래그로 분할 · 병합, 레이아웃 프리셋",
+      "Claude 상태 표시 — 작업 중 · 권한 요청 · 완료를 탭 · 사이드바 · 알림으로",
+      "사이드바 프로젝트 · 서버 — ~/.ssh/config 자동 인식, user@host 빠른 연결",
+      "SFTP — 로컬 | 원격 목록, 끌어 놓기 전송, 대기열 · 로그",
+      "SSH 비밀번호 · 키체인 등록 — 키 만들기부터 서버 등록까지",
+      "Homebrew 도구 관리 · 테마 9종 · 설정 내보내기 / 가져오기",
+      "안전한 자동 업데이트 — 개발자 서명과 Apple 공증 확인 후 설치"
+    ],
+    "screenshots": [
+      "/screenshots/MgangTerm/01.webp",
+      "/screenshots/MgangTerm/02.webp",
+      "/screenshots/MgangTerm/03.webp",
+      "/screenshots/MgangTerm/04.webp"
+    ],
+    "video": ""
   }
 }
