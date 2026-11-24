@@ -92,12 +92,17 @@
         "published_at": "2026-11-24T05:42:11Z",
         "assets": [
             {
+                "name": "MgangTerm-0.1.0.dmg",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.0/MgangTerm-0.1.0.dmg",
+                "download_count": 0
+            },
+            {
                 "name": "MgangTerm.app.zip",
                 "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.0/MgangTerm.app.zip",
-                "download_count": 1
+                "download_count": 2
             }
         ],
-        "downloads": 1
+        "downloads": 2
     },
     {
         "name": "NeckGuard-releases",
