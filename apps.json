@@ -86,23 +86,23 @@
     {
         "name": "MgangTerm-releases",
         "full_name": "mgang4u/MgangTerm-releases",
-        "description": "MgangTerm v0.1.0",
+        "description": "MgangTerm v0.1.1",
         "html_url": "https://git.mgang.app/mgang4u/MgangTerm-releases",
-        "tag_name": "v0.1.0",
-        "published_at": "2026-11-24T05:42:11Z",
+        "tag_name": "v0.1.1",
+        "published_at": "2026-11-24T07:29:44Z",
         "assets": [
             {
-                "name": "MgangTerm-0.1.0.dmg",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.0/MgangTerm-0.1.0.dmg",
-                "download_count": 1
+                "name": "MgangTerm-0.1.1.dmg",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.1/MgangTerm-0.1.1.dmg",
+                "download_count": 0
             },
             {
                 "name": "MgangTerm.app.zip",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.0/MgangTerm.app.zip",
-                "download_count": 2
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.1/MgangTerm.app.zip",
+                "download_count": 0
             }
         ],
-        "downloads": 3
+        "downloads": 0
     },
     {
         "name": "NeckGuard-releases",
@@ -136,7 +136,7 @@
             {
                 "name": "SecureKM.app.tar.gz",
                 "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v0.1.16/SecureKM.app.tar.gz",
-                "download_count": 3
+                "download_count": 4
             },
             {
                 "name": "SecureKM_0.1.16_aarch64.dmg",
@@ -144,7 +144,7 @@
                 "download_count": 1
             }
         ],
-        "downloads": 4
+        "downloads": 5
     },
     {
         "name": "erpAssist-releases",
@@ -189,9 +189,9 @@
             {
                 "name": "workAssist-v1.1.5.zip",
                 "url": "https://git.mgang.app/mgang4u/workAssist-releases/releases/download/v1.1.5/workAssist-v1.1.5.zip",
-                "download_count": 6
+                "download_count": 7
             }
         ],
-        "downloads": 6
+        "downloads": 7
     }
 ]
