@@ -31,15 +31,15 @@
             {
                 "name": "CaTerm.app.tar.gz",
                 "url": "https://git.mgang.app/mgang4u/CaTerm-releases/releases/download/v1.1.3/CaTerm.app.tar.gz",
-                "download_count": 82
+                "download_count": 84
             },
             {
                 "name": "CaTerm_1.1.3_aarch64.dmg",
                 "url": "https://git.mgang.app/mgang4u/CaTerm-releases/releases/download/v1.1.3/CaTerm_1.1.3_aarch64.dmg",
-                "download_count": 167
+                "download_count": 171
             }
         ],
-        "downloads": 249
+        "downloads": 255
     },
     {
         "name": "CaTower-releases",
