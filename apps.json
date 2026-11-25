@@ -31,15 +31,15 @@
             {
                 "name": "CaTerm.app.tar.gz",
                 "url": "https://git.mgang.app/mgang4u/CaTerm-releases/releases/download/v1.1.3/CaTerm.app.tar.gz",
-                "download_count": 86
+                "download_count": 90
             },
             {
                 "name": "CaTerm_1.1.3_aarch64.dmg",
                 "url": "https://git.mgang.app/mgang4u/CaTerm-releases/releases/download/v1.1.3/CaTerm_1.1.3_aarch64.dmg",
-                "download_count": 175
+                "download_count": 179
             }
         ],
-        "downloads": 261
+        "downloads": 269
     },
     {
         "name": "CaTower-releases",
@@ -86,19 +86,19 @@
     {
         "name": "MgangTerm-releases",
         "full_name": "mgang4u/MgangTerm-releases",
-        "description": "MgangTerm v0.1.12",
+        "description": "MgangTerm v0.1.13",
         "html_url": "https://git.mgang.app/mgang4u/MgangTerm-releases",
-        "tag_name": "v0.1.12",
-        "published_at": "2026-11-25T07:05:42Z",
+        "tag_name": "v0.1.13",
+        "published_at": "2026-11-25T09:48:17Z",
         "assets": [
             {
-                "name": "MgangTerm-0.1.12.dmg",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.12/MgangTerm-0.1.12.dmg",
+                "name": "MgangTerm-0.1.13.dmg",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.13/MgangTerm-0.1.13.dmg",
                 "download_count": 0
             },
             {
                 "name": "MgangTerm.app.zip",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.12/MgangTerm.app.zip",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.13/MgangTerm.app.zip",
                 "download_count": 0
             }
         ],
