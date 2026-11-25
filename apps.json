@@ -15,10 +15,10 @@
             {
                 "name": "BrewTop_0.3.0_aarch64.dmg",
                 "url": "https://git.mgang.app/mgang4u/BrewTop-releases/releases/download/v0.3.0/BrewTop_0.3.0_aarch64.dmg",
-                "download_count": 63
+                "download_count": 65
             }
         ],
-        "downloads": 80
+        "downloads": 82
     },
     {
         "name": "CaTerm-releases",
@@ -86,19 +86,19 @@
     {
         "name": "MgangTerm-releases",
         "full_name": "mgang4u/MgangTerm-releases",
-        "description": "MgangTerm v0.1.5",
+        "description": "MgangTerm v0.1.6",
         "html_url": "https://git.mgang.app/mgang4u/MgangTerm-releases",
-        "tag_name": "v0.1.5",
-        "published_at": "2026-11-25T01:31:29Z",
+        "tag_name": "v0.1.6",
+        "published_at": "2026-11-25T02:10:19Z",
         "assets": [
             {
-                "name": "MgangTerm-0.1.5.dmg",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.5/MgangTerm-0.1.5.dmg",
+                "name": "MgangTerm-0.1.6.dmg",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.6/MgangTerm-0.1.6.dmg",
                 "download_count": 0
             },
             {
                 "name": "MgangTerm.app.zip",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.5/MgangTerm.app.zip",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v0.1.6/MgangTerm.app.zip",
                 "download_count": 0
             }
         ],
