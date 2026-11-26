@@ -86,19 +86,19 @@
     {
         "name": "MgangTerm-releases",
         "full_name": "mgang4u/MgangTerm-releases",
-        "description": "MgangTerm v1.1.2",
+        "description": "MgangTerm v1.1.3",
         "html_url": "https://git.mgang.app/mgang4u/MgangTerm-releases",
-        "tag_name": "v1.1.2",
-        "published_at": "2026-11-26T06:28:08Z",
+        "tag_name": "v1.1.3",
+        "published_at": "2026-11-26T06:42:00Z",
         "assets": [
             {
-                "name": "MgangTerm-1.1.2.dmg",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.1.2/MgangTerm-1.1.2.dmg",
+                "name": "MgangTerm-1.1.3.dmg",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.1.3/MgangTerm-1.1.3.dmg",
                 "download_count": 0
             },
             {
                 "name": "MgangTerm.app.zip",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.1.2/MgangTerm.app.zip",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.1.3/MgangTerm.app.zip",
                 "download_count": 0
             }
         ],
@@ -141,10 +141,10 @@
             {
                 "name": "SecureKM_1.1.0_aarch64.dmg",
                 "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v1.1.0/SecureKM_1.1.0_aarch64.dmg",
-                "download_count": 0
+                "download_count": 1
             }
         ],
-        "downloads": 2
+        "downloads": 3
     },
     {
         "name": "erpAssist-releases",
