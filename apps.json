@@ -94,15 +94,15 @@
             {
                 "name": "MgangTerm-1.0.3.dmg",
                 "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.0.3/MgangTerm-1.0.3.dmg",
-                "download_count": 0
+                "download_count": 3
             },
             {
                 "name": "MgangTerm.app.zip",
                 "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.0.3/MgangTerm.app.zip",
-                "download_count": 0
+                "download_count": 2
             }
         ],
-        "downloads": 0
+        "downloads": 5
     },
     {
         "name": "NeckGuard-releases",
@@ -128,23 +128,23 @@
     {
         "name": "SecureKM-releases",
         "full_name": "mgang4u/SecureKM-releases",
-        "description": "SecureKM v0.1.16",
+        "description": "SecureKM v1.0.0",
         "html_url": "https://git.mgang.app/mgang4u/SecureKM-releases",
-        "tag_name": "v0.1.16",
-        "published_at": "2026-11-09T05:02:32Z",
+        "tag_name": "v1.0.0",
+        "published_at": "2026-11-26T05:27:32Z",
         "assets": [
             {
                 "name": "SecureKM.app.tar.gz",
-                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v0.1.16/SecureKM.app.tar.gz",
-                "download_count": 4
+                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v1.0.0/SecureKM.app.tar.gz",
+                "download_count": 0
             },
             {
-                "name": "SecureKM_0.1.16_aarch64.dmg",
-                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v0.1.16/SecureKM_0.1.16_aarch64.dmg",
-                "download_count": 1
+                "name": "SecureKM_1.0.0_aarch64.dmg",
+                "url": "https://git.mgang.app/mgang4u/SecureKM-releases/releases/download/v1.0.0/SecureKM_1.0.0_aarch64.dmg",
+                "download_count": 0
             }
         ],
-        "downloads": 5
+        "downloads": 0
     },
     {
         "name": "erpAssist-releases",
