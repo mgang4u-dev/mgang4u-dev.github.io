@@ -86,19 +86,19 @@
     {
         "name": "MgangTerm-releases",
         "full_name": "mgang4u/MgangTerm-releases",
-        "description": "MgangTerm v1.1.3",
+        "description": "MgangTerm v1.1.4",
         "html_url": "https://git.mgang.app/mgang4u/MgangTerm-releases",
-        "tag_name": "v1.1.3",
-        "published_at": "2026-11-26T06:42:00Z",
+        "tag_name": "v1.1.4",
+        "published_at": "2026-11-26T06:47:35Z",
         "assets": [
             {
-                "name": "MgangTerm-1.1.3.dmg",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.1.3/MgangTerm-1.1.3.dmg",
+                "name": "MgangTerm-1.1.4.dmg",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.1.4/MgangTerm-1.1.4.dmg",
                 "download_count": 0
             },
             {
                 "name": "MgangTerm.app.zip",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.1.3/MgangTerm.app.zip",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.1.4/MgangTerm.app.zip",
                 "download_count": 0
             }
         ],
@@ -173,10 +173,10 @@
             {
                 "name": "myWorkHour-v1.0.48.zip",
                 "url": "https://git.mgang.app/mgang4u/myWorkHour-releases/releases/download/v1.0.48/myWorkHour-v1.0.48.zip",
-                "download_count": 4
+                "download_count": 5
             }
         ],
-        "downloads": 4
+        "downloads": 5
     },
     {
         "name": "workAssist-releases",
