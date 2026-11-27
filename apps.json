@@ -86,23 +86,23 @@
     {
         "name": "MgangTerm-releases",
         "full_name": "mgang4u/MgangTerm-releases",
-        "description": "MgangTerm v1.4.0",
+        "description": "MgangTerm v1.4.1",
         "html_url": "https://git.mgang.app/mgang4u/MgangTerm-releases",
-        "tag_name": "v1.4.0",
-        "published_at": "2026-11-27T04:06:21Z",
+        "tag_name": "v1.4.1",
+        "published_at": "2026-11-27T05:56:12Z",
         "assets": [
             {
-                "name": "MgangTerm-1.4.0.dmg",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.4.0/MgangTerm-1.4.0.dmg",
-                "download_count": 1
+                "name": "MgangTerm-1.4.1.dmg",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.4.1/MgangTerm-1.4.1.dmg",
+                "download_count": 0
             },
             {
                 "name": "MgangTerm.app.zip",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.4.0/MgangTerm.app.zip",
-                "download_count": 2
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.4.1/MgangTerm.app.zip",
+                "download_count": 0
             }
         ],
-        "downloads": 3
+        "downloads": 0
     },
     {
         "name": "NeckGuard-releases",
