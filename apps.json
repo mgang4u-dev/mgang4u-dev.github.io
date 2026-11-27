@@ -78,27 +78,27 @@
             {
                 "name": "HiDPI_0.5.0_aarch64.dmg",
                 "url": "https://git.mgang.app/mgang4u/HiDPI-releases/releases/download/v0.5.0/HiDPI_0.5.0_aarch64.dmg",
-                "download_count": 1
+                "download_count": 2
             }
         ],
-        "downloads": 7
+        "downloads": 8
     },
     {
         "name": "MgangTerm-releases",
         "full_name": "mgang4u/MgangTerm-releases",
-        "description": "MgangTerm v1.3.0",
+        "description": "MgangTerm v1.4.0",
         "html_url": "https://git.mgang.app/mgang4u/MgangTerm-releases",
-        "tag_name": "v1.3.0",
-        "published_at": "2026-11-27T03:31:22Z",
+        "tag_name": "v1.4.0",
+        "published_at": "2026-11-27T04:06:21Z",
         "assets": [
             {
-                "name": "MgangTerm-1.3.0.dmg",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.3.0/MgangTerm-1.3.0.dmg",
+                "name": "MgangTerm-1.4.0.dmg",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.4.0/MgangTerm-1.4.0.dmg",
                 "download_count": 0
             },
             {
                 "name": "MgangTerm.app.zip",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.3.0/MgangTerm.app.zip",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.4.0/MgangTerm.app.zip",
                 "download_count": 0
             }
         ],
