@@ -94,15 +94,15 @@
             {
                 "name": "MgangTerm-1.5.8.dmg",
                 "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.5.8/MgangTerm-1.5.8.dmg",
-                "download_count": 0
+                "download_count": 1
             },
             {
                 "name": "MgangTerm.app.zip",
                 "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.5.8/MgangTerm.app.zip",
-                "download_count": 0
+                "download_count": 4
             }
         ],
-        "downloads": 0
+        "downloads": 5
     },
     {
         "name": "NeckGuard-releases",
