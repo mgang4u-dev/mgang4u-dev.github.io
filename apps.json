@@ -86,19 +86,19 @@
     {
         "name": "MgangTerm-releases",
         "full_name": "mgang4u/MgangTerm-releases",
-        "description": "MgangTerm v1.4.1",
+        "description": "MgangTerm v1.4.2",
         "html_url": "https://git.mgang.app/mgang4u/MgangTerm-releases",
-        "tag_name": "v1.4.1",
-        "published_at": "2026-11-27T05:56:12Z",
+        "tag_name": "v1.4.2",
+        "published_at": "2026-11-27T06:03:21Z",
         "assets": [
             {
-                "name": "MgangTerm-1.4.1.dmg",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.4.1/MgangTerm-1.4.1.dmg",
+                "name": "MgangTerm-1.4.2.dmg",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.4.2/MgangTerm-1.4.2.dmg",
                 "download_count": 0
             },
             {
                 "name": "MgangTerm.app.zip",
-                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.4.1/MgangTerm.app.zip",
+                "url": "https://git.mgang.app/mgang4u/MgangTerm-releases/releases/download/v1.4.2/MgangTerm.app.zip",
                 "download_count": 0
             }
         ],
